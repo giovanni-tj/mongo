@@ -60,14 +60,21 @@ function buscarByIsbn(isbn) {
   });
 }
 
-function modificarTituloByisbn() {
-
+ function modificarTituloByIsbn(isbn,titulo, autor){
+  Libro.findOneAndUpdate({isbn:isbn},
+    {titulo:titulo},function(err,data){
+    if (err) {
+      console.log(err);
+    }
+    console.log(data);
+  });
 }
 
 function main() {
   //nuevoLibro();
   //nuevosLibros();
-  buscarByIsbn("4567256P");
+  //buscarByIsbn("4567256P");
+  modificarTituloByIsbn("7567223F","La Guerra");
 }
 
 main();    // ejecutamos main
